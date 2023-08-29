@@ -13,7 +13,6 @@ def print_title(txt):
 
 def cadastrar_colaborador(id_global):
     global lista_colaboradores  
-    
     nome_colaborador = input("Por favor, entre com o nome: ")
     setor_colaborador = input("Por favor, entre com o setor: ")
     pagamento_colaborador = input("Por favor, entre com o pagamento: ")
@@ -31,8 +30,9 @@ def consultar_colaborador():
     while True:
         try:
             opc = int(input('>>>>>>>>>>>>>>>>>>>>>>>>>>>>'))
-        except: 
-            print("Opção inválida")    
+        except ValueError:
+            print("Opção inválida") 
+
         else:
             print('-'*20)
             print('id........: {}'.format(item['id']))
@@ -61,8 +61,6 @@ def menu():
                 print_title('MENU CADASTRAR COLABORADOR')
                 id_global += 1
                 cadastrar_colaborador(id_global)
-                
-                continue
             elif opc == 2:
                 print('*'*len(mensagem))
                 print_title('MENU CONSULTAR COLABORADOR')
