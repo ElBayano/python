@@ -22,23 +22,53 @@ def cadastrar_colaborador(id_global):
 
 def consultar_colaborador():
     print('Escolha a opção desejada')
-    print('Escolha a opção desejada')
-    print('Escolha a opção desejada')
-    print('Escolha a opção desejada')
+    print('1 - Consultar TODOS os colaboradores')
+    print('2 - Consultar por ID')
+    print('3 - Consultar colaboradores por setor')
+    print('4 - Retornar')
     item = lista_colaboradores[:]
 
     while True:
         try:
-            opc = int(input('>>>>>>>>>>>>>>>>>>>>>>>>>>>>'))
+            opc = int(input('>>>>>>>>>>>>>>>>>>>>>>>>>>>> '))
         except ValueError:
             print("Opção inválida") 
 
         else:
-            print('-'*20)
-            print('id........: {}'.format(item['id']))
-            print('nome......: {}'.format(item['nome']))
-            print('setor.....: {}'.format(item['setor']))
-            print('pagamento.: {}'.format(item['pagamento']))
+            if opc == 1:
+                for colaborador in item:
+                    print('-'*20)
+                    print('id........: {}'.format(colaborador['id']))
+                    print('nome......: {}'.format(colaborador['nome']))
+                    print('setor.....: {}'.format(colaborador['setor']))
+                    print('pagamento.: {}'.format(colaborador['pagamento']))
+                break
+                    
+            if opc == 2:
+                try: 
+                    id = int(input("\nDigite o Id do colaborador: "))
+                except:
+                    print("Valor não numérico")
+                else:
+                    item = item[id - 1]
+                    print('-'*20)
+                    print('id........: {}'.format(item['id']))
+                    print('nome......: {}'.format(item['nome']))
+                    print('setor.....: {}'.format(item['setor']))
+                    print('pagamento.: {}'.format(item['pagamento']))
+                break
+
+
+            if opc == 3:
+                print('2 - Consultar por ID')
+            if opc == 4:
+                break
+
+            # print('-'*20)
+            # print('id........: {}'.format(item['id']))
+            # print('nome......: {}'.format(item['nome']))
+            # print('setor.....: {}'.format(item['setor']))
+            # print('pagamento.: {}'.format(item['pagamento'])) 
 
 
 def menu():
